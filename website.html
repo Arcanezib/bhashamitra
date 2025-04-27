@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BhashaMitra | Modern Language Learning</title>
+    <link rel="stylesheet" href="website.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-icon">BM</div>
+                    <span>BhashaMitra</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#features">Features</a>                  
+                    <a href="#about">About</a>
+                    <a href="LanguageQuiz.html">Quiz</a>
+                    <a href="chatbot.html">Chatbot</a>
+                </div>
+                <div class="user-menu">
+                    
+                    <!-- <button href="index.html" class="btn btn-outline">Log In</button> -->
+                    <a href="index.html" class="btn btn-outline" >Log In</a>
+                    <!-- <button class="btn btn-outline"><a href="index.html"> log IN</a></button> -->
+                    <button class="btn btn-primary">Sign Up</button>
+                </div>
+            </nav>
+        </div>
+        
+        <div class="hero">
+            <div class="container">
+                <h1>Unlock a World of Languages</h1>
+                <p>BhashaMitra (In Sanskrit, Bhasha = Language, Mitra = Friend),
+                     your friend in language learning, is committed to provide 
+                     the best language learning services and products on web and on mobile.
+                </p>
+            </div>
+        </div>
+    </header>
+    
+    <section class="container">
+        <div class="language-selector">
+            <div class="selector-header">
+                <div class="selector-title">Choose a language to start</div>
+                <button class="btn btn-primary">Get Started</button>
+            </div>
+            <div class="language-grid">
+                <div class="language-card active">
+                    <div class="flag">🇪🇸</div>
+                    <div class="language-name">Spanish</div>
+                </div>
+                <div class="language-card">
+                    <div class="flag">🇫🇷</div>
+                    <div class="language-name">French</div>
+                </div>
+                <div class="language-card">
+                    <div class="flag">🇩🇪</div>
+                    <div class="language-name">German</div>
+                </div>
+                <div class="language-card">
+                    <div class="flag">🇮🇹</div>
+                    <div class="language-name">Italian</div>
+                </div>
+                <div class="language-card">
+                    <div class="flag">🇯🇵</div>
+                    <div class="language-name">Japanese</div>
+                </div>
+                <div class="language-card">
+                    <div class="flag">🇨🇳</div>
+                    <div class="language-name">Chinese</div>
+                </div>
+                <div class="language-card">
+                    <div class="flag">🇰🇷</div>
+                    <div class="language-name">Korean</div>
+                </div>
+                <div class="language-card">
+                    <div class="flag">🇵🇹</div>
+                    <div class="language-name">Portuguese</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose BhashaMitra?</h2>
+                <p class="section-subtitle">Our science-based approach makes language learning effective, engaging, and tailored to your needs.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Personalized Learning</h3>
+                    <p class="feature-desc">Our AI adapts to your learning style, pace, and goals to create a custom path just for you.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3 class="feature-title">Spaced Repetition</h3>
+                    <p class="feature-desc">Our algorithm ensures you review words and phrases at the optimal time for maximum retention.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3 class="feature-title">Gamified Experience</h3>
+                    <p class="feature-desc">Earn points, unlock achievements, and compete with friends to stay motivated.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎤</div>
+                    <h3 class="feature-title">Speech Recognition</h3>
+                    <p class="feature-desc">Practice your pronunciation with our advanced speech recognition technology.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3 class="feature-title">Conversational Practice</h3>
+                    <p class="feature-desc">Chat with our AI tutors to practice real-world conversations in your target language.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Progress Tracking</h3>
+                    <p class="feature-desc">Monitor your improvement with detailed stats and insights about your learning journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="learning-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experience Immersive Learning</h2>
+                <p class="section-subtitle">Our interactive lessons combine audio, visual, and contextual learning for maximum effectiveness.</p>
+            </div>
+            
+            <div class="learning-content">
+                <img src="/api/placeholder/500/350" alt="Learning dashboard" class="learning-image">
+                
+                <div class="lesson-demo">
+                    <div class="lesson-header">
+                        <div class="lesson-title">Spanish Basics - Lesson 3</div>
+                        <div>7/20</div>
+                    </div>
+                    
+                    <div class="progress-container">
+                        <div class="progress-bar"></div>
+                    </div>
+                    
+                    <div class="card-container">
+                        <div class="flashcard" id="flashcard">
+                            <div class="flashcard-front">
+                                <div class="word">Buenos días</div>
+                                <div class="pronunciation">bweh-nos dee-as</div>
+                                <div class="hint">Click to reveal translation</div>
+                            </div>
+                            <div class="flashcard-back">
+                                <div class="translation">Good morning</div>
+                                <div class="example">"Buenos días, ¿cómo estás hoy?"<br>"Good morning, how are you today?"</div>
+                            </div>
+                        </div>
+                        
+                        <div class="action-buttons">
+                            <button class="btn btn-secondary">I need practice</button>
+                            <button class="btn btn-success">I got it!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">BhashaMitra</div>
+                    <p class="footer-desc">Making language learning accessible, effective, and fun for everyone around the world.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">t</a>
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">ig</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Company</h4>
+                    <div class="footer-links">
+                        <a href="#">About Us</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Press</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Resources</h4>
+                    <div class="footer-links">
+                        <a href="#">Help Center</a>
+                        <a href="#">Community</a>
+                        <a href="#">Language Guides</a>
+                        <a href="#">API</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Legal</h4>
+                    <div class="footer-links">
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Cookie Policy</a>
+                        <a href="#">Security</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+       // Flashcard Flip Functionality
+        const flashcard = document.getElementById('flashcard');
+        
+        flashcard.addEventListener('click', () => {
+            flashcard.classList.toggle('flipped');
+        });
+        
+        // Language Selection Logic
+        const languageCards = document.querySelectorAll('.language-card');
+        
+        languageCards.forEach(card => {
+            card.addEventListener('click', () => {
+               
+                languageCards.forEach(c => c.classList.remove('active'));
+                
+                card.classList.add('active');
+            });
+        });
+        
+        // Lesson Progression System
+        const progressBar = document.querySelector('.progress-bar');
+        const lessonCounter = document.querySelector('.lesson-header div:last-child');
+        let currentLesson = 7;
+        const totalLessons = 20;
+        
+        document.querySelector('.btn-success').addEventListener('click', () => {
+            if (currentLesson < totalLessons) {
+                currentLesson++;
+                lessonCounter.textContent = `${currentLesson}/${totalLessons}`;
+                progressBar.style.width = `${(currentLesson / totalLessons) * 100}%`;
+                
+                
+                flashcard.classList.remove('flipped');
+                
+                
+                const words = [
+                    { word: "Buenas tardes", pronunciation: "bweh-nas tar-des", translation: "Good afternoon", example: "\"Buenas tardes, ¿cómo va tu día?\"\n\"Good afternoon, how is your day going?\"" },
+                    { word: "Buenas noches", pronunciation: "bweh-nas no-ches", translation: "Good evening", example: "\"Buenas noches, hasta mañana.\"\n\"Good evening, see you tomorrow.\"" },
+                    { word: "Gracias", pronunciation: "gra-see-as", translation: "Thank you", example: "\"Gracias por tu ayuda.\"\n\"Thank you for your help.\"" }
+                ];
+                
+                const randomWord = words[Math.floor(Math.random() * words.length)];
+                
+                
+                document.querySelector('.word').textContent = randomWord.word;
+                document.querySelector('.pronunciation').textContent = randomWord.pronunciation;
+                document.querySelector('.translation').textContent = randomWord.translation;
+                document.querySelector('.example').innerHTML = randomWord.example;
+            }
+        });
+        
+        
+        const loginBtn = document.querySelector('.btn-outline');
+        const signupBtn = document.querySelector('.btn-primary');
+        
+    </script>
+</body>
+</html>

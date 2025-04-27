@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BhashaMitra Chatbot | Practice Conversations</title>
+    <link rel="stylesheet" href="chatbot.css" >
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-icon">BM</div>
+                    <span>BhashaMitra</span>
+                </div>
+                <div class="nav-links">
+                    <!-- <a href="#">Courses</a> -->
+                    <a href="#">Features</a>
+                    <a href="#">About</a>
+                    <a href="website.html">Home</a>
+                </div>
+                <div class="user-menu">
+                    <button class="btn btn-outline">Log In</button>
+                    <button class="btn btn-primary">Sign Up</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="chatbot-container">
+            <div class="chat-header">
+                <div class="chat-title">Conversation Practice</div>
+                <div class="language-selector">
+                    <select id="language-select">
+                        <option value="spanish">Spanish</option>
+                        <option value="french">French</option>
+                        <option value="german">German</option>
+                        <option value="italian">Italian</option>
+                        <option value="japanese">Japanese</option>
+                        <option value="chinese">Chinese</option>
+                    </select>
+                    <select id="level-select" class="level-selector">
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="chat-body" id="chat-body">
+                
+                <div class="message bot-message">
+                    <div class="message-info">LinguaBot • Just now</div>
+                    <div class="message-content">¡Hola! Soy tu asistente de conversación en español. ¿Cómo estás hoy?</div>
+                    <div class="translation">Hello! I'm your Spanish conversation assistant. How are you today?</div>
+                </div>
+                
+               
+                <div class="message user-message">
+                    <div class="message-info">You • Just now</div>
+                    <div class="message-content">Estoy bien, gracias. ¿Y tú?</div>
+                    <div class="translation">I'm good, thank you. And you?</div>
+                </div>
+                
+                
+                <div class="message bot-message">
+                    <div class="message-info">LinguaBot • Just now</div>
+                    <div class="message-content">¡Muy bien! ¿Qué te gustaría practicar hoy? Podemos hablar sobre comida, viajes, o la vida diaria.</div>
+                    <div class="translation">Very good! What would you like to practice today? We can talk about food, travel, or daily life.</div>
+                </div>
+            </div>
+            
+            <div class="options-container" id="options-container">
+                <div class="response-option" onclick="selectOption(this)">Me gustaría hablar sobre comida.</div>
+                <div class="response-option" onclick="selectOption(this)">Prefiero practicar sobre viajes.</div>
+                <div class="response-option" onclick="selectOption(this)">Hablemos de la vida diaria.</div>
+                <div class="response-option" onclick="selectOption(this)">¿Podemos practicar otra cosa?</div>
+            </div>
+            
+            <div class="chat-footer">
+                <input type="text" class="chat-input" id="chat-input" placeholder="Type your message in Spanish..." onkeydown="handleKeyDown(event)">
+                <button class="btn btn-primary" onclick="sendMessage()">Send</button>
+            </div>
+            
+            <div class="tools">
+                <div class="tool-button" onclick="showTranslation()">
+                    <div class="tool-icon">🔄</div>
+                    <div class="tool-name">Translate</div>
+                </div>
+                <div class="tool-button" onclick="slowDownAudio()">
+                    <div class="tool-icon">🐢</div>
+                    <div class="tool-name">Slow</div>
+                </div>
+                <div class="tool-button" onclick="repeatAudio()">
+                    <div class="tool-icon">🔁</div>
+                    <div class="tool-name">Repeat</div>
+                </div>
+                <div class="tool-button" onclick="showHint()">
+                    <div class="tool-icon">💡</div>
+                    <div class="tool-name">Hint</div>
+                </div>
+                <div class="tool-button" onclick="checkPronunciation()">
+                    <div class="tool-icon">🎤</div>
+                    <div class="tool-name">Speak</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        
+        const conversationScenarios = {
+            spanish: {
+                food: [
+                    {
+                        bot: "¡Genial! Hablemos de comida. ¿Cuál es tu comida española favorita?",
+                        translation: "Great! Let's talk about food. What's your favorite Spanish food?"
+                    },
+                    {
+                        options: [
+                            "Me encanta la paella.",
+                            "Prefiero las tapas, especialmente la tortilla española.",
+                            "Me gusta mucho el gazpacho.",
+                            "No he probado muchas comidas españolas."
+                        ]
+                    }
+                ],
+                travel: [
+                    {
+                        bot: "¡Excelente! Los viajes son un tema interesante. ¿Has visitado algún país de habla hispana?",
+                        translation: "Excellent! Travel is an interesting topic. Have you visited any Spanish-speaking country?"
+                    },
+                    {
+                        options: [
+                            "Sí, visité España el año pasado.",
+                            "No, pero me gustaría visitar México pronto.",
+                            "He estado en varios países de América Latina.",
+                            "Todavía no, pero es mi sueño."
+                        ]
+                    }
+                ],
+                daily: [
+                    {
+                        bot: "La vida diaria es un buen tema para practicar. ¿Qué haces normalmente por las mañanas?",
+                        translation: "Daily life is a good topic to practice. What do you normally do in the mornings?"
+                    },
+                    {
+                        options: [
+                            "Me despierto temprano y hago ejercicio.",
+                            "Tomo café y leo las noticias.",
+                            "Preparo el desayuno para mi familia.",
+                            "Reviso mis correos electrónicos y me preparo para trabajar."
+                        ]
+                    }
+                ]
+            },
+            
+        };
+        
+        
+        let currentTopic = "";
+        let currentLanguage = "spanish";
+        let currentLevel = "beginner";
+        
+        
+        function addMessage(message, isUser = false) {
+            const chatBody = document.getElementById('chat-body');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+            
+            const now = new Date();
+            const timeString = now.getHours() + ':' + (now.getMinutes() < 10 ? '0' : '') + now.getMinutes();
+            
+            messageDiv.innerHTML = `
+                <div class="message-info">${isUser ? 'You' : 'LinguaBot'} • Just now</div>
+                <div class="message-content">${message.content || message}</div>
+                ${message.translation ? `<div class="translation">${message.translation}</div>` : ''}
+            `;
+            
+            chatBody.appendChild(messageDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+            
+           
+            if (!isUser && message.options) {
+                showOptions(message.options);
+            } else {
+                
+                const optionsContainer = document.getElementById('options-container');
+                optionsContainer.innerHTML = '';
+            }
+            
+            return messageDiv;
+        }
+        
+       
+        function showOptions(options) {
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            
+            options.forEach(option => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'response-option';
+                optionDiv.textContent = option;
+                optionDiv.onclick = function() { selectOption(this); };
+                optionsContainer.appendChild(optionDiv);
+            });
+        }
+        
+        
+        function selectOption(optionElement) {
+            const userMessage = optionElement.textContent;
+            
+           
+            addMessage(userMessage, true);
+            
+            
+            document.getElementById('options-container').innerHTML = '';
+            
+            
+            processResponse(userMessage);
+        }
+        
+        
+        function sendMessage() {
+            const inputElement = document.getElementById('chat-input');
+            const userMessage = inputElement.value.trim();
+            
+            if (userMessage) {
+                
+                addMessage(userMessage, true);
+                
+                
+                inputElement.value = '';
+                
+                
+                processResponse(userMessage);
+            }
+        }
+        
+        
+        function handleKeyDown(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+        
+        
+        function processResponse(userMessage) {
+            
+            let botResponse;
+            
+            
+            if (userMessage.toLowerCase().includes('comida')) {
+                currentTopic = 'food';
+                botResponse = conversationScenarios[currentLanguage].food[0];
+            } else if (userMessage.toLowerCase().includes('viaje') || userMessage.toLowerCase().includes('visita')) {
+                currentTopic = 'travel';
+                botResponse = conversationScenarios[currentLanguage].travel[0];
+            } else if (userMessage.toLowerCase().includes('vida') || userMessage.toLowerCase().includes('diaria')) {
+                currentTopic = 'daily';
+                botResponse = conversationScenarios[currentLanguage].daily[0];
+            } else {
+                
+                if (userMessage.toLowerCase().includes('hola') || userMessage.toLowerCase().includes('buenos')) {
+                    botResponse = {
+                        content: "¡Hola! ¿Cómo puedo ayudarte hoy?",
+                        translation: "Hello! How can I help you today?"
+                    };
+                } else if (userMessage.toLowerCase().includes('gracias')) {
+                    botResponse = {
+                        content: "¡De nada! Estoy aquí para ayudarte a practicar español.",
+                        translation: "You're welcome! I'm here to help you practice Spanish."
+                    };
+                } else if (userMessage.toLowerCase().includes('bien') || userMessage.toLowerCase().includes('estoy')) {
+                    botResponse = {
+                        content: "¡Me alegro! ¿De qué te gustaría hablar hoy?",
+                        translation: "I'm glad! What would you like to talk about today?"
+                    };
+                    botResponse.options = [
+                        "Me gustaría hablar sobre comida.",
+                        "Prefiero practicar sobre viajes.",
+                        "Hablemos de la vida diaria.",
+                        "¿Podemos practicar otra cosa?"
+                    ];
+                } else {
+                    botResponse = {
+                        content: "Interesante. ¿Podrías contarme más sobre eso?",
+                        translation: "Interesting. Could you tell me more about that?"
+                    };
+                }
+            }
+            
+           
+            setTimeout(() => {
+                const messageElement = addMessage(botResponse);
+                
+                
+                if (currentTopic && conversationScenarios[currentLanguage][currentTopic][1]) {
+                    showOptions(conversationScenarios[currentLanguage][currentTopic][1].options);
+                }
+            }, 800);
+        }
+        
+        function showTranslation() {
+            const translations = document.querySelectorAll('.translation');
+            translations.forEach(t => {
+                t.style.display = t.style.display === 'none' ? 'block' : 'none';
+            });
+        }
+        
+        function slowDownAudio() {
+            alert("In a full implementation, this would slow down the audio playback of the current phrase.");
+        }
+        
+        function repeatAudio() {
+            alert("In a full implementation, this would replay the audio of the current phrase.");
+        }
+        
+        function showHint() {
+            alert("Hint: Try using different verb tenses in your responses to practice conjugation.");
+        }
+        
+        function checkPronunciation() {
+            alert("In a full implementation, this would activate speech recognition to check your pronunciation.");
+        }
+        
+        
+        document.getElementById('language-select').addEventListener('change', function(e) {
+            currentLanguage = e.target.value;
+            
+            
+            document.getElementById('chat-body').innerHTML = '';
+            
+            let greeting;
+            switch(currentLanguage) {
+                case 'spanish':
+                    greeting = {
+                        content: "¡Hola! Soy tu asistente de conversación en español. ¿Cómo estás hoy?",
+                        translation: "Hello! I'm your Spanish conversation assistant. How are you today?"
+                    };
+                    break;
+                case 'french':
+                    greeting = {
+                        content: "Bonjour! Je suis votre assistant de conversation en français. Comment allez-vous aujourd'hui?",
+                        translation: "Hello! I'm your French conversation assistant. How are you today?"
+                    };
+                    break;
+                case 'german':
+                    greeting = {
+                        content: "Hallo! Ich bin dein deutscher Konversationsassistent. Wie geht es dir heute?",
+                        translation: "Hello! I'm your German conversation assistant. How are you today?"
+                    };
+                    break;
+                default:
+                    greeting = {
+                        content: "¡Hola! Soy tu asistente de conversación en español. ¿Cómo estás hoy?",
+                        translation: "Hello! I'm your Spanish conversation assistant. How are you today?"
+                    };
+            }
+            
+            addMessage(greeting);
+            
+            
+            const inputPlaceholder = document.getElementById('chat-input');
+            inputPlaceholder.placeholder = `Type your message in ${currentLanguage.charAt(0).toUpperCase() + currentLanguage.slice(1)}...`;
+        });
+        
+        document.getElementById('level-select').addEventListener('change', function(e) {
+            currentLevel = e.target.value;
+            
+           
+            alert(`Language level changed to ${currentLevel}. Vocabulary and grammar complexity will adjust accordingly.`);
+        });
+    </script>
+</body>
+</html>
